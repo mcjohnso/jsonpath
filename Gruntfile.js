@@ -26,7 +26,7 @@ module.exports = function (grunt) {
                          * That is ok because we will modify the "esprima" source code right after the bundle process, via
                          * the postBundleCB callback.
                          */
-                        ["esprima", {expose: "./aesprim"}]
+                        //["esprima", {expose: "./aesprim"}]
                     ],
                     ignore: [
                         'file',
@@ -45,7 +45,7 @@ module.exports = function (grunt) {
                          * This is ugly, but we need to make "esprima" understand '@' as a valid character.
                          * It's either this or bundle a copy of the library with those few bytes of changes.
                          */
-                        src = src.toString("utf8").replace(/(function isIdentifierStart\(ch\) {\s+return)/m, '$1 (ch == 0x40) || ');
+                        //src = src.toString("utf8").replace(/(function isIdentifierStart\(ch\) {\s+return)/m, '$1 (ch == 0x40) || ');
                         next(err, new Buffer(src, "utf8"));
                     }
                 }
